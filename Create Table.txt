@@ -1,0 +1,21 @@
+USE [TestDB]
+GO
+
+/****** Object:  Table [dbo].[EmployeeMaster]    Script Date: 7/6/2018 1:29:33 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[EmployeeMaster](
+	[Id] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
+	[EmployeeCode] [bigint] NULL,
+	[EmployeeName] [varchar](150) NULL,
+	[EmployeeDob] [datetime] NULL,
+	[EmployeeAddress] [varchar](500) NULL
+) ON [PRIMARY]
+
+GO
+
+

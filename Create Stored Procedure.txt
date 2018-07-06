@@ -1,0 +1,54 @@
+USE [TestDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[EmpMaster_SP]    Script Date: 7/6/2018 1:29:48 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[EmpMaster_SP]  
+@ID     NUMERIC(18,0)=NULL,  
+@EmpCode BIGINT=NULL,  
+@EmpName VARCHAR(150)=NULL,  
+@DOB     DATETIME=NULL,  
+@Address VARCHAR(500)=NULL,  
+@Mode    VARCHAR(10)  
+AS  
+BEGIN  
+    SET NOCOUNT ON;  
+  
+    IF (@Mode='ADD')  
+    BEGIN  
+        INSERT INTO EmployeeMaster (EmployeeCode,EmployeeName,EmployeeDob,EmployeeAddress)  
+            VALUES(@EmpCode,@EmpName,@DOB,@Address)  
+    END  
+  
+    IF (@Mode='EDIT')  
+    BEGIN  
+        UPDATE EmployeeMaster SET EmployeeCode=@EmpCode,EmployeeName=@EmpName,EmployeeDob=@DOB,EmployeeAddress=@Address WHERE ID=@ID  
+              
+    END  
+  
+    IF (@Mode='DELETE')  
+    BEGIN  
+        DELETE FROM EmployeeMaster WHERE ID=@ID  
+              
+    END  
+  
+    IF (@Mode='GET')  
+    BEGIN  
+        SELECT Id,EmployeeCode,EmployeeName,CONVERT(VARCHAR(11), EmployeeDob)EmployeeDob,EmployeeAddress FROM EmployeeMaster  
+              
+    END  
+  
+    IF (@Mode='GETID')		
+    BEGIN  
+        SELECT Id,EmployeeCode,EmployeeName, EmployeeDob,EmployeeAddress FROM EmployeeMaster WHERE ID=@ID  
+              
+    END   
+END
+GO
+
+

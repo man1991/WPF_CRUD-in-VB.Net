@@ -1,0 +1,49 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CRUD_Gridvb"
+        mc:Ignorable="d"
+        Title="CRUD" Height="700" Width="900" Background="DarkGray">
+    <Grid Background="#FF474747">
+        <Rectangle Fill="#FF66512F" HorizontalAlignment="Left" Height="165" Margin="76,40,0,0" Stroke="Black" VerticalAlignment="Top" Width="779"/>
+        <Label x:Name="label" Content="Employee Code" HorizontalAlignment="Left" Margin="90,81,0,0" VerticalAlignment="Top" Foreground="#FFEADCDC" FontWeight="Bold" FontFamily="Tahoma"/>
+        <TextBox x:Name="txtCode" HorizontalAlignment="Left" Height="30" Margin="202,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" FontSize="14"/>
+        <Label x:Name="label_Copy" Content="Employee Name" HorizontalAlignment="Left" Margin="417,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.602,0.615" Foreground="#FFEADCDC" FontWeight="Bold" FontFamily="Tahoma"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="30" Margin="550,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="235" FontSize="14"/>
+        <Label x:Name="label_Copy1" Content="DOB" HorizontalAlignment="Left" Margin="90,134,0,0" VerticalAlignment="Top" Foreground="#FFEADCDC" FontWeight="Bold" FontFamily="Tahoma"/>
+        <DatePicker x:Name="txtDate" HorizontalAlignment="Left" Margin="202,139,0,0" VerticalAlignment="Top" Width="170" Height="30" FontSize="14"/>
+        <Label x:Name="label_Copy2" Content="Employee Address" HorizontalAlignment="Left" Margin="417,134,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.602,0.615" Foreground="#FFEADCDC" FontWeight="Bold" FontFamily="Tahoma"/>
+        <RichTextBox x:Name="rtxtAddress" HorizontalAlignment="Left" Height="75" Margin="550,117,0,0" VerticalAlignment="Top" Width="235" FontSize="14">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Rectangle Fill="#FF472828" HorizontalAlignment="Left" Height="55" Margin="76,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="755"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="119,230,0,0" VerticalAlignment="Top" Width="166" RenderTransformOrigin="-0.053,0" Height="35" Foreground="#FF0C0A0A" FontWeight="Bold" BorderBrush="#FFFFF4F4"
+                />
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="339,230,0,0" VerticalAlignment="Top" Width="175" RenderTransformOrigin="-0.053,0" Height="35" Foreground="Black" BorderBrush="#FFF7F6F5"
+                />
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="550,230,0,0" VerticalAlignment="Top" Width="170" RenderTransformOrigin="-0.003,0" Height="35" Foreground="#FF111010"
+                />
+        <Rectangle Fill="#FF0E2727" HorizontalAlignment="Left" Height="270" Margin="76,300,0,0" Stroke="Black" VerticalAlignment="Top" Width="755"/>
+
+        <DataGrid   x:Name="dgEmp" Height="270" AutoGenerateColumns="False" RowHeight="25" 
+                    GridLinesVisibility="Vertical" HeadersVisibility="All" RowBackground="WhiteSmoke" 
+                    AlternatingRowBackground="LightGray" IsReadOnly="True" Margin="76,300,61,99" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Width="130" Header="Employee Id"/>
+                <DataGridTextColumn Binding="{Binding EmployeeCode}" Width="130" Header="Employee Code"/>
+                <DataGridTextColumn Binding="{Binding EmployeeName}" Width="200" Header="Employee Name"/>
+                <DataGridTextColumn Binding="{Binding EmployeeDob}" Width="100" Header="DOB"/>
+                <DataGridTextColumn Binding="{Binding EmployeeAddress}" Width="200" Header="Employee Address"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="label_Copy3" Content="Employee Id" HorizontalAlignment="Left" Margin="90,45,0,0" VerticalAlignment="Top" Foreground="#FFEADCDC" FontWeight="Bold" FontFamily="Tahoma"/>
+        <Label x:Name="lblEmpId" Content="" HorizontalAlignment="Left" Margin="202,45,0,0" VerticalAlignment="Top" Foreground="#FFEADCDC" FontWeight="Bold" FontFamily="Tahoma"/>
+
+    </Grid>
+</Window>
